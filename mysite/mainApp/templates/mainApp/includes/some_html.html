@@ -31,7 +31,6 @@
  position: relative;
 }
 
-/* hide back of pane during swap */
 .front, .back {
  -webkit-backface-visibility: hidden;
  -moz-backface-visibility: hidden;
@@ -44,13 +43,11 @@
  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* front pane, placed above back */
 .front {
  background:#98d7ce;
  z-index: 2;
 }
 
-/* back, initially hidden pane */
 .back {
  -webkit-transform: rotateY( 180deg );
  -moz-transform: rotateY( 180deg );
@@ -73,23 +70,22 @@
 }
 
 </style>
-
 <div class="container">
   <div class="row">
-   {% for val in values %}
+   {% for val in cards %}
  <div class="col-md-4 col-sm-6" >
   <br><br><br><br>
  <div class="card-container">
  <div class="card">
  <div class="front">
  <div class="main">
- <h3 class="name">{{val}}</h3>
+ <h3 class="name">{{val.question}}</h3>
  </div>
  </div>
 
  <div class="back">
  <div class="main">
- <h4 class="name">{{val}}</h4>
+ <h4 class="name">{{val.answer}}</h4>
  </div>
  </div>
   </div>

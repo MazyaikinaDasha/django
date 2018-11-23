@@ -1,10 +1,13 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from . models import *
-def index(request):
-	return render(request, 'mainApp/homePage.html')
-def test(request):
-	return render(request, 'mainApp/study.html', {'values': ['formula','theorem','eeee', '5555']})
+from django.views.generic import ListView,DetailView
+from . import models
+def index(request, t_id):
+	cards = models.Card.objects.all().filter(top = t_id)
+	return render(request, "mainApp/study.html", {'cards': cards})
+
 
 	
    
